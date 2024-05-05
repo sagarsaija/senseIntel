@@ -19,6 +19,8 @@ This system is designed to ingest IoT sensor data, process it for anomaly detect
 4. **Anomaly Detection**: RRCF algorithm is utilized to calculate timeseries anomaly scores.
 5. **Reporting and Visualization**: Grafana is used for reporting and visualizations, providing insights into the processed IoT sensor data.
 
+![img.png](img.png)
+
 ## Deployment:
 The demo environment is deployed using Docker Compose, which simplifies the setup of the entire system. To deploy the demo:
 1. Clone the repository containing the Docker Compose configuration.
