@@ -3,7 +3,7 @@
 // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=drawing">
 function initMap() {
   const map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: 37.79582214355469, lng: -122.39362335205078 },
+    center: { lat: 48.5823983, lng: 37.8026238 },
     zoom: 13,
   });
   const drawingManager = new google.maps.drawing.DrawingManager({
