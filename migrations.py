@@ -1,13 +1,6 @@
 import psycopg2
 from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
 
-# Database configuration
-# DATABASE = 'timeseries'
-# USER = 'doadmin'
-# PASSWORD = 'AVNS_bjip2lSzYvfoW0edZXj'
-# HOST = 'db-postgresql-sfo3-65542-do-user-16558773-0.c.db.ondigitalocean.com'
-# PORT = '25060'
-
 DATABASE = 'timeseries'
 USER = 'postgres'
 PASSWORD = 'mysecretpassword'
