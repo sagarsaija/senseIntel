@@ -2,6 +2,8 @@
 
 This system is designed to ingest IoT sensor data, process it for anomaly detection using Robust Random Cut Forests (RRCF), and store the data in a PostgreSQL database. The architecture utilizes MQTT for communication between edge devices and the processing system, Redis for queueing incoming messages, Python workers for processing the message queue, and Grafana for reporting and visualization.
 
+### This project was inspired by [Operation Igloo White](https://en.wikipedia.org/wiki/Operation_Igloo_White)
+
 ## Technologies Used:
 - [MQTT](https://mqtt.org/): Lightweight messaging protocol for communication between IoT devices and the processing system.
 - [Redis](https://redis.io/): In-memory data structure store used as a message broker for queueing MQTT messages.
