@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+  mosquitto:
+    image: eclipse-mosquitto
+    container_name: mosquitto
+    volumes:
+      - ./config:/mosquitto/config
+      - ./data:/mosquitto/data
+      - ./log:/mosquitto/log
+    ports:
+      - 1883:1883
+      - 9001:9001
+    stdin_open: true
+    tty: true
+
+  #  mqtt_consumer:
+  #    build:
+  #      context: .
+  #      dockerfile: Dockerfile
+  #    container_name: mqtt_consumer
+  #    depends_on:
+  #      - mosquitto
+
+  timescaledb:
+    image: timescale/timescaledb:latest-pg13
+    environment:
+      - POSTGRES_PASSWORD=mysecretpassword
+      - POSTGRES_DB=timescaledb
+    ports:
+      - "5432:5432"
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    depends_on:
+      - timescaledb
+
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"

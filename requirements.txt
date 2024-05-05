@@ -1,0 +1,7 @@
+paho-mqtt
+redis
+pytest
+psycopg2
+pandas
+rrcf
+librosa

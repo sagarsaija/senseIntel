@@ -1,8 +1,11 @@
-import sqlite3
-import serial
 import re
+import sqlite3
 
-def initialize_serial(port="/dev/serial/by-id/usb-Silicon_Labs_CP2102_USB_to_UART_Bridge_Controller_0001-if00-port0", baudrate=115200, timeout=3):
+import serial
+
+
+def initialize_serial(port="/dev/serial/by-id/usb-Silicon_Labs_CP2102_USB_to_UART_Bridge_Controller_0001-if00-port0",
+                      baudrate=115200, timeout=3):
     """Initialize the serial connection."""
     try:
         ser = serial.Serial(port=port, baudrate=baudrate, timeout=timeout)
@@ -14,6 +17,7 @@ def initialize_serial(port="/dev/serial/by-id/usb-Silicon_Labs_CP2102_USB_to_UAR
         print("Failed to initialize serial port:", e)
         exit(1)
     return ser
+
 
 def update_database(data):
     """Inserts parsed data into the database."""
@@ -27,6 +31,7 @@ def update_database(data):
     conn.close()
     print("Data inserted into database")
 
+
 def parse_serial_data(line):
     """Parse received serial data and return relevant information."""
     # Extract audio samples from the line
@@ -34,6 +39,7 @@ def parse_serial_data(line):
     # Join the samples into a comma-separated string
     samples_str = ', '.join(samples_match)
     return samples_str
+
 
 def read_from_serial(ser):
     """Read data from serial and process it."""
@@ -53,6 +59,7 @@ def read_from_serial(ser):
     finally:
         ser.close()
 
+
 def setup_database():
     conn = sqlite3.connect('serial_data.db')
     cursor = conn.cursor()
@@ -66,10 +73,12 @@ def setup_database():
     conn.commit()
     conn.close()
 
+
 def main():
-    setup_database() 
+    setup_database()
     ser = initialize_serial()
     read_from_serial(ser)
+
 
 if __name__ == "__main__":
     main()

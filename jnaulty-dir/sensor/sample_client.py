@@ -1,5 +1,6 @@
 import sqlite3
 
+
 def read_from_database():
     """Read data from the database and print it."""
     try:
@@ -18,9 +19,10 @@ def read_from_database():
     finally:
         conn.close()
 
+
 def main():
     read_from_database()
 
+
 if __name__ == "__main__":
     main()
-
